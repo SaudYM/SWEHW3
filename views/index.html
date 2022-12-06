@@ -4,7 +4,7 @@
 </h1>
         <div class="center divindex">
             {% for item in recipeD %}
-            <a href="recipe.html"><img src="{{recipeD[loop.index-1].image}}" alt="{{recipeD[loop.index-1].title}}"></a>
+            <a href="/recipes/{{loop.index}}.html"><img src="{{recipeD[loop.index-1].image}}" alt="{{recipeD[loop.index-1].title}}"></a>
             {% endfor %}
         </div>
     
