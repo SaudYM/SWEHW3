@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jumbo fish fingers</title>
-        <link rel="stylesheet" href="FishRecipe.css">
-    </head>
-
-    <body onload="recipebuilder(recipe_id)">
+{% extends 'base.html' %}
+{% block content %}
         <header>
             <h1 class="header">
                 
@@ -20,7 +10,7 @@
                 <b id="b31">Difficulty</b> 
             <hr>
         </header>
-        <main>
+        
             <p class="header2">
                 <b>
                     INGREDIENTS</b>
@@ -130,83 +120,5 @@
                 <a href="https://www.google.com/search?q=fish+fingers+recipe&start=10">Search for other fish fingers
                     recipes</a>
             </p>
-        </main>
-        <script>
-        //     function recipebuilder(recipe_id) {
-        //         var id =recipe_id;
-        //             let model = require("../models/recipe_mode");
-        //             model.getRecipeDetail(recipe_id).then(function (value) {
-        //                 var myArray = value[0];
-        //                 var result = myArray.find(item => item.id === recipe_id);
-        //                 var b1 = document.createElement("b");
-        //                 b1.innerHTML= result.title;
-        //                 document.getElementsByClassName("header").appendChild(b1);
-        //                 var b2 = document.createElement("b");
-        //                 b2.innerHTML = result.subtitle;
-        //                 document.getElementsByClassName("header2").appendChild(b2);
-        //                 var s1 = document.createElement("strong");
-        //                 s1.innerHTML = result.make;
-        //                 document.getElementsByClassName("textalligner").appendChild(s1);
-        //                 document.getElementsByClassName("textalligner").innerHTML= result.cook_time;
-        //                 var b3 = document.createElement("b");
-        //                 b3.innerHTML = result.difficulty;
-        //                 document.getElementsByClassName("b31").appendChild(b3);
-
-        //                 ///////////////////INGREDIANTS//////////////////
-        //                 function imgcreate() {
-        //                     let model = require("../models/recipe_mode");
-        //                     model.getAllRecipes().then(function (value) {
-        //                         if (id == 1){
-        //                         var img = new Image();
-        //                          img.src = value[0].image;
-        //                         document.getElementById('detailsUL').appendChild(img);
-        //                     }
-        //                         else if (id == 2){
-        //                             var img = new Image();
-        //                             img.src = value[1].image;
-        //                             document.getElementById('detailsUL').appendChild(img);
-        //                         }
-        //                         else{
-        //                             var img = new Image();
-        //                             img.src = value[2].image;
-        //                             document.getElementById('detailsUL').appendChild(img);
-        //                         }
-        //                     });
-        //                 }
-        //                    if (id == 1) {
-        //                     let x = 1;
-        //                  while (x < 7) {
-        //                      var myArray2 = value[1];
-        //                      var result = myArray2.find(item => item.id === x);
-        //                      x++;
-        //                      li.innerHTML=result.item;
-        //                      document.getElementById('detailsUL').appendChild(li);
-        //                  }
-                           
-        //                 }
-        //                 else if (id == 2) {
-        //                     let x = 2;
-        //                    while (x < 11) {
-        //                            var myArray2 = value[1];
-        //                            var result = myArray2.find(item => item.id === x);
-        //                            x++;
-        //                            li.innerHTML = result.item;
-        //                            document.getElementById('detailsUL').appendChild(li);
-        //                        }
-        //                 }
-        //                 else {
-        //                     let x = 11;
-        //                        while (x < 19) {
-        //                            var myArray2 = value[1];
-        //                            var result = myArray2.find(item => item.id === x);
-        //                            x++;
-        //                            li.innerHTML = result.item;
-        //                            document.getElementById('detailsUL').appendChild(li);
-        //                        }
-        //                 }
-        //             });
-        //         }
-        // </script>
-    </body>
-
-</html>
+        
+{% endblock %}
