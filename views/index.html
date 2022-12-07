@@ -2,9 +2,10 @@
 {% block content %}
 <h1>All Awesome Recipes
 </h1>
-        <div class="center divindex">
+        <div id="divindex">
             {% for item in recipeD %}
-            <a href="/recipes/{{loop.index}}.html"><img src="{{recipeD[loop.index-1].image}}" alt="{{recipeD[loop.index-1].title}}"></a>
+            <a href="/recipes/{{loop.index}}">
+           <img src="{{recipeD[loop.index-1].image}}" alt="{{recipeD[loop.index-1].title}}"></a>
             {% endfor %}
         </div>
     

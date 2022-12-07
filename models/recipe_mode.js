@@ -20,11 +20,19 @@ async function getAllRecipes() {
 
 async function getRecipeDetail(recipe_id) {
 
+  var arr = [];
   const db = await getDbConnection();
-  const sql = "select * from recipes where id=?";
-  const rows = await db.all(sql, [recipe_id]);
+  const sql1 = "select * from recipes where id=?";
+  const row1 = await db.all(sql1, [recipe_id]);
+  const sql2 = "select item from ingredients where recipe_id=?";
+  const row2 = await db.all(sql2, [recipe_id]);
+  const sql3 = "select step from method where recipe_id=?";
+  const row3 = await db.all(sql3, [recipe_id]);
+  const sql4 = "select * from comments where recipe_id=?";
+  const row4 = await db.all(sql4, [recipe_id]);
+  arr.push(row1, row2, row3, row4);
   await db.close();
-  return rows;
+  return arr;
 
 };
 

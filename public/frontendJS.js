@@ -1,21 +1,34 @@
-/*
- * which sends an AJAX get request to “/recipes/:recipe_id/comments”
- * and parse the received JSON to create the comments HTML
- * and place them in the container mentioned in step 6.a.
- */
 
-function showComments(recipe_id) {}
+const BASE_URL = 'http://localhost:8000/recipes/:recipe_id/comments'
+const querySelector = (selector) => {
+    return document.querySelector(selector)
+}
 
-/*
- * to handle when the user clicks on the “see comments” button.
- * It unhides the comments section and call showComments.
- */
-function seeComments(recipe_id) {}
+async function showComments(recipe_id) {
 
-/*
- * to handle when the user clicks on the “+” button of the comments form.
- * The function should extract the author and the comment from the form fields.
- * Then it sends an AJAX POST request to  “/recipes/:recipe_id/comments” sending a JSON encoded comment object.
- * Then it calls showComments to update the page.
- */
-function sendComment(recipe_id) {}
+    const listDiv = qs('#tasksList')
+    const response = await fetch(BASE_URL)
+    console.log(response)
+    if (response.ok) {
+        const comments = await response.json()
+        output = comments.map((cmnt) => `
+        <div class="box2">
+                <p>
+                    This is a very fun recipe to follow.</p>
+                <p> - Ahmed Z. </p>
+            </div>
+            <div class="box2">
+                <p>
+                    This is my favorite recipe. I enjoy it.</p>
+                <p> - Karim K. </p>
+            </div>
+        `).join('')
+    }
+    listDiv.innerHTML = output
+}
+
+function seeComments(recipe_id) { }
+
+function sendComment(recipe_id) { }
+console.log(showComments())
+showComments();

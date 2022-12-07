@@ -2,12 +2,15 @@
 {% block content %}
         <header>
             <h1 class="header">
-                
+                {{recipeD2[0][0].title}}
             </h1>
             <h3 class="header2">
+                {{recipeD2[0][0].subtitle}}
             </h3>
-            <p class="textalligner"> <strong> Makes</strong> 
-                <b id="b31">Difficulty</b> 
+            <p class="textalligner"> <strong> Makes </strong> {{recipeD2[0][0].make}}<strong>Cooks In </strong>
+            {{recipeD2[0][0].cook_time}}
+                <strong>Difficulty </strong>
+                {{recipeD2[0][0].difficulty}}
             <hr>
         </header>
         
@@ -16,6 +19,12 @@
                     INGREDIENTS</b>
             </p>
             <ul id="detailsUL">
+                <img src="../{{recipeD2[0][0].image}}" alt="{{recipeD2[0][0].title}}">
+                {% for item in recipeD2[1] %}
+                <li>
+                    {{item.item}}
+                </li>
+                {% endfor %}
             </ul>
             <hr>
             <p class="header2">
@@ -23,40 +32,11 @@
                     METHOD</b>
             </p>
             <ol>
-                <li> <b>Cut the fish into 10 x 120g portions. </b>I tend to cut the side lengthways about 3cm thick,
-                    then
-                    into chunks from that.</li>
-                <li><b> In a shallow bowl: </b>
-                    <ul>
-                        <li> whisk the eggs with the paprika and a pinch of sea salt and black pepper.</li>
-                        <li> Tear the bread into a food processor, grate in the cheese, add 2 <abbr title=""><span
-                                    title="Tabelspoons">tbsp
-                                </span></abbr> of oil and whiz until
-                            you have breadcrumbs, then tip into a tray.
-                        </li>
-                        <li> Coat each fish portion in the egg mixture, let any excess drip off, then turn in the
-                            breadcrumbs
-                            until
-                            well coated all
-                            over.</li>
-                        <li> Transfer to a tray lined with greaseproof paper, layering them up between sheets of paper
-                            until
-                            they're
-                            all coated.</li>
-                        <li>Cook right away or freeze in the tray – once frozen, you can pop them into a tub or
-                            sandwich bags for easier storage.
-                        </li>
-                    </ul>
+                {% for item in recipeD2[2] %}
+                <li>
+                    {{item.step}}
                 </li>
-                <li> <b> To cook:</b>
-                    <ul>
-                        <li> Place however many jumbo fish fingers you need on a roasting tray.
-                        </li>
-                        <li> Cook in a preheated oven at 200°C/400°F/gas 6 for 15 minutes from fresh, or 20 minutes
-                            from frozen, or until golden and cooked through.
-                        </li>
-                    </ul>
-                </li>
+                {% endfor %}
             </ol>
             <hr>
             <p class="header2">
@@ -69,7 +49,7 @@
                 <p><b>Comment:</b> <br> <textarea placeholder="Enter your comment here..." name="Comment" id="cmnt"
                         cols="50" rows="5"></textarea>
                 </p>
-                <input class="plus" alt="pic2" type="image" name="plus" src="PlusSign.jpg" height="60" width="60">
+                <input class="plus" alt="pic2" type="image" name="plus" src="../PlusSign.jpg" height="60" width="60">
             </fieldset>
             <p class="Tbox">
                 <b>All comments:</b>

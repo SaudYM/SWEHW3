@@ -16,12 +16,12 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/recipes/:recipe_id", async (req, res) => {
-  const recipeD2 = await recipeModel.getRecipeDetail();
+  const recipeD2 = await recipeModel.getRecipeDetail(req.params.recipe_id);
   res.render(path.join(__dirname + '/views/recipe.html'), { recipeD2 });
 });
 
 app.get("/recipes/:recipe_id/comments", async (req, res) => {
-  const comments = await recipeModel.getComments();
+  const comments = await recipeModel.getComments(req.params.recipe_id);
   res.json({ comments });
 });
 
