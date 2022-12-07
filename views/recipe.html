@@ -41,7 +41,10 @@
             <hr>
             <p class="header2">
                 <b>
-                    User Comments</b>
+                    User Comments</b> </p>
+                    <button onclick="seeComments('{{recipeD2[0][0].id}}')">See comments</button>
+                    <!-- This is hidden  -->
+                    <form action="post">
             <fieldset class="box">
                 <legend>Enter a comment:</legend>
                 <b>Name:</b> <br>
@@ -49,16 +52,15 @@
                 <p><b>Comment:</b> <br> <textarea placeholder="Enter your comment here..." name="Comment" id="cmnt"
                         cols="50" rows="5"></textarea>
                 </p>
-                <input class="plus" alt="pic2" type="image" name="plus" src="../PlusSign.jpg" height="60" width="60">
+                <input class="plus" alt="pic2" type="image" name="plus" src="../PlusSign.jpg" height="60" width="60" onclick="sendComment('{{recipeD2[0][0].id}}')">
             </fieldset>
+            </form>
             <p class="Tbox">
                 <b>All comments:</b>
 
             </p>
             <div class="box2" id="cmntcontainer">
-                <p>
-                    This is a very fun recipe to follow.</p>
-                <p> - Ahmed Z. </p>
+                
             </div>
             <hr>
             <p class="header2">
@@ -88,12 +90,12 @@
             </form>
             <hr>
             <p class="header2">
-                <b>
+                <b id ="testtt">
                     LINKS</b>
             </p>
             <p class="textalligner2">
                 <a href="https://www.google.com/search?q=fish+fingers+recipe&start=10">Search for other fish fingers
                     recipes</a>
             </p>
-        
+       
 {% endblock %}

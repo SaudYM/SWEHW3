@@ -52,6 +52,7 @@
     }
 
     .box {
+        display: none;
         max-width: 40%;
         margin: auto;
 
@@ -177,6 +178,7 @@
     }
 
     .box {
+        display: none;
         max-width: 40%;
         margin: auto;
 
@@ -287,6 +289,7 @@
     }
 
     .box {
+        display: none;
         max-width: fit-content;
         margin: auto;
 
